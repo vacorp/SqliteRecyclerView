@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     override fun onResume() {
+        // Comment
         viewCustomers()
         super.onResume()
     }
