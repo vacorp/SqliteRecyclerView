@@ -72,7 +72,7 @@ class CustomerAdapter (mCtx: Context, val customers: ArrayList<Customer>): Recyc
                         val isUpdate: Boolean = MainActivity.dbHandler.updateustomer(
                                 customer.customerID.toString(),
                                 view.editUpCustomerName.text.toString(),
-                                view.editMaxCredit.text.toString())
+                                view.editUpMaxCredit.text.toString())
                         if (isUpdate == true) {
                             customers[p1].customerName = view.editUpCustomerName.text.toString()
                             customers[p1].maxCredit = view.editUpMaxCredit.text.toString().toDouble()
