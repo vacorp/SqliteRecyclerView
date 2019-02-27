@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editUpCustoerName"
+        android:id="@+id/editUpCustomerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -52,5 +52,5 @@
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editUpCustoerName" />
+        app:layout_constraintTop_toBottomOf="@+id/editUpCustomerName" />
 </android.support.constraint.ConstraintLayout>

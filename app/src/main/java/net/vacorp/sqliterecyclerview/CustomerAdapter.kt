@@ -3,7 +3,6 @@ package net.vacorp.sqliterecyclerview
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_customer.view.*
 import kotlinx.android.synthetic.main.io_customer_update.view.*
 import kotlinx.android.synthetic.main.io_cutomers.view.*
-import java.lang.reflect.Array.set
 
 class CustomerAdapter (mCtx: Context, val customers: ArrayList<Customer>): RecyclerView.Adapter<CustomerAdapter.ViewHolder>() {
     val mCtx = mCtx
@@ -63,7 +61,7 @@ class CustomerAdapter (mCtx: Context, val customers: ArrayList<Customer>): Recyc
         p0.btnUpdate.setOnClickListener {
             val inflater = LayoutInflater.from(mCtx)
             val view = inflater.inflate(R.layout.io_customer_update, null)
-            val textCustName: TextView = view.findViewById(R.id.editUpCustoerName)
+            val textCustName: TextView = view.findViewById(R.id.editUpCustomerName)
             val textMaxCredit: TextView = view.findViewById(R.id.editUpMaxCredit)
             textCustName.text = customer.customerName
             textMaxCredit.text = customer.maxCredit.toString()
@@ -73,10 +71,10 @@ class CustomerAdapter (mCtx: Context, val customers: ArrayList<Customer>): Recyc
                     .setPositiveButton("Update", DialogInterface.OnClickListener { dialog, which ->
                         val isUpdate: Boolean = MainActivity.dbHandler.updateustomer(
                                 customer.customerID.toString(),
-                                view.editCustomerName.text.toString(),
+                                view.editUpCustomerName.text.toString(),
                                 view.editMaxCredit.text.toString())
                         if (isUpdate == true) {
-                            customers[p1].customerName = view.editCustomerName.text.toString()
+                            customers[p1].customerName = view.editUpCustomerName.text.toString()
                             customers[p1].maxCredit = view.editUpMaxCredit.text.toString().toDouble()
                             notifyDataSetChanged()
                             Toast.makeText(mCtx, "customer  updated succesful", Toast.LENGTH_SHORT).show()
